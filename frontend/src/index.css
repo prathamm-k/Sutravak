@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0D0C0A;
+    color: #F0EAD6;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0C0A;
+  border-left: 1px solid #2E2A22;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E2A22;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A84C;
+}
+
+/* Radial Background mimicking a dark vignette paper/parchment */
+.bg-radial-parchment {
+  background: radial-gradient(circle at center, #161410 0%, #0D0C0A 100%);
+}
+
+/* Manuscript gold divider styling */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #C9A84C 50%, transparent 100%);
+  position: relative;
+}
+
+.gold-divider::after {
+  content: '♦';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #C9A84C;
+  font-size: 8px;
+  background: #1A1814;
+  padding: 0 8px;
+}
+
+/* Gold glow class */
+.glow-gold {
+  box-shadow: 0 0 15px rgba(201, 168, 76, 0.15);
+}
+
+.glow-gold-focus:focus-within {
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+  border-color: #C9A84C;
+}
+
+/* Custom slider thumb styles for Tailwind v3 */
+input[type="range"].gold-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #2E2A22;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="range"].gold-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #C9A84C;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  border: 1px solid #1A1814;
+}
+
+input[type="range"].gold-slider::-webkit-slider-thumb:hover {
+  background: #E2C06A;
+  transform: scale(1.2);
+}
+
+input[type="range"].gold-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #C9A84C;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  border: 1px solid #1A1814;
+}
+
+input[type="range"].gold-slider::-moz-range-thumb:hover {
+  background: #E2C06A;
+  transform: scale(1.2);
+}

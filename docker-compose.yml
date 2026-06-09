@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  sutravak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sutravak:latest
+    ports:
+      - "9000:9000"
+    volumes:
+      # Persist generated audio outputs to the host PC
+      - ./backend/outputs:/app/outputs
+      # Persist custom uploaded reference voices to the host PC
+      - ./backend/voices:/app/voices
+    environment:
+      - PYTORCH_ENABLE_MPS_FALLBACK=1
+    restart: unless-stopped
