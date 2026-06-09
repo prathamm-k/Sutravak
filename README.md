@@ -107,20 +107,25 @@ npm run dev
 
 ---
 
-### Option C: Production Monolith Container
+### Option C: Pull Pre-built Image (No Code Required)
 
-For single-container deployment, the root [Dockerfile](file:///Users/prathamkairamkonda/Developer/Projects/History-Narration-TTS/Dockerfile) packages the built static React frontend directly into the FastAPI backend container to run on port `9001`.
+If you just want to run the application without downloading any source code or building containers, you can pull the pre-built monolith image directly from Docker Hub.
+
+1. Ensure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is installed and running.
+2. Open a terminal and run the single Docker command. 
+
+**For Windows Users:**
+```bash
+docker run -p 9001:9001 -v C:\Sutravak\outputs:/app/outputs -v C:\Sutravak\voices:/app/voices prathammk01/sutravak
+```
 
 **For Mac / Linux Users:**
 ```bash
-docker build -t sutravak-monolith .
-docker run -p 9001:9001 \
-  -v "$(pwd)/backend/outputs:/app/outputs" \
-  -v "$(pwd)/backend/voices:/app/voices" \
-  sutravak-monolith
+docker run -p 9001:9001 -v ~/Sutravak/outputs:/app/outputs -v ~/Sutravak/voices:/app/voices prathammk01/sutravak
 ```
 
-Open [http://localhost:9001](http://localhost:9001) in your browser.
+3. Docker will download the image, save the massive AI models directly to your Downloads folder, and start the server.
+4. Open [http://localhost:9000](http://localhost:9000) in your browser!
 
 ---
 
