@@ -13,9 +13,12 @@ services:
       - ./backend/outputs:/app/outputs
       # Persist custom uploaded reference voices to the host PC
       - ./backend/voices:/app/voices
+      # Persist Hugging Face model cache on the host PC so it doesn't download 4GB on every run
+      - ./backend/huggingface_cache:/app/huggingface_cache
       - ./backend:/app
     environment:
       - PYTORCH_ENABLE_MPS_FALLBACK=1
+      - HF_HOME=/app/huggingface_cache
     restart: unless-stopped
 
   frontend:

@@ -8,6 +8,8 @@ RUN npm run build
 FROM python:3.11-slim
 WORKDIR /app
 
+ENV HF_HOME=/app/huggingface_cache
+
 RUN apt-get update && apt-get install -y ffmpeg espeak-ng build-essential && rm -rf /var/lib/apt/lists/*
 
 COPY backend/requirements.txt .

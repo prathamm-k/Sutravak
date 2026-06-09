@@ -116,16 +116,16 @@ If you just want to run the application without downloading any source code or b
 
 **For Windows Users:**
 ```bash
-docker run -p 9001:9001 -v C:\Sutravak\outputs:/app/outputs -v C:\Sutravak\voices:/app/voices prathammk01/sutravak
+docker run -p 9001:9001 -v C:\Sutravak\outputs:/app/outputs -v C:\Sutravak\voices:/app/voices -v C:\Sutravak\huggingface_cache:/app/huggingface_cache prathammk01/sutravak
 ```
 
 **For Mac / Linux Users:**
 ```bash
-docker run -p 9001:9001 -v ~/Sutravak/outputs:/app/outputs -v ~/Sutravak/voices:/app/voices prathammk01/sutravak
+docker run -p 9001:9001 -v ~/Sutravak/outputs:/app/outputs -v ~/Sutravak/voices:/app/voices -v ~/Sutravak/huggingface_cache:/app/huggingface_cache prathammk01/sutravak
 ```
 
-3. Docker will download the image, save the massive AI models directly to your Downloads folder, and start the server.
-4. Open [http://localhost:9000](http://localhost:9000) in your browser!
+3. Docker will download the image and boot the server. On the first run, the Chatterbox model weights (approx. 4.1GB) will be downloaded and saved directly into your local `huggingface_cache` directory on your PC. Subsequent runs will boot instantly.
+4. Open [http://localhost:9001](http://localhost:9001) in your browser!
 
 ---
 
